@@ -94,7 +94,7 @@ class Humanoid extends Character {
     return `${this.name} offers a greeting ${this.language}`;
   }
 }
-
+//add test
 // Humanoid.prototype = Object.create(CharacterStats.prototype); //inheriting destroy() from GameObject through CharacterStats
 
 // Humanoid.prototype.greet = function() {
