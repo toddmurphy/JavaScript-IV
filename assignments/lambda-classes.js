@@ -39,14 +39,17 @@ class Student extends Person {
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
   }
+  // need to use forEach to log out favSubjects one by one
   listSubjects() {
-    return `${this.favSubjects}`;
+    this.favSubjects.forEach(item => console.log(item));
   }
-  PRAssignment() {
-    return `${this.name} has submitted a PR for ${this.favSubjects}`;
+  //pass in a subject as argument
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
   }
-  sprintChallenge() {
-    return `${this.name} has begun a sprint challenge on ${this.favSubjects}`;
+  //
+  sprintChallenge(subject) {
+    return `${this.name} has begun a sprint challenge on ${subject}`;
   }
 }
 
@@ -58,8 +61,8 @@ class Project extends Instructor {
     this.gradClassName = projectAttributes.gradClassName;
     this.favInstructor = projectAttributes.favInstructor;
   }
-  standUp() {
-    return `${this.name} announces to the ${this.gradClassName}, @channel standy times and I'm back!.`;
+  standUp(channel) {
+    return `${this.name} announces to the ${channel}, @channel standy times and I'm back!.`;
   }
   //pass in a the 'alica' object as 'studentObject' to access student properties, and pass in 'subject' parameter.
   debugsCode(studentObject, studentSubject) {
@@ -117,8 +120,8 @@ const john = new Project({
 console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
 console.log(marina.demo()); //logs 'Today we are learning about node.js'
 console.log(marina.grade(alicia)); //logs pass in the 'student' object to access student properties.'Alicia Murphy receives a perfect score on JavaScript '
-console.log(alicia.listSubjects()); //logs 'HTML, CSS, JavaScript'
-console.log(alicia.PRAssignment()); //logs 'Alicia Murph has submitted a PR for HTML, CSS, JavaScript'
-console.log(alicia.sprintChallenge()); //logs 'Alica Murphy has begun a sprint challenge on HTML, CSS, JavaScript'
-console.log(john.standUp()); //logs 'John Wick announces to the Web 16, @channel standy times and I'm Back.'
+alicia.listSubjects(); //logs 'HTML, CSS, JavaScript'
+console.log(alicia.PRAssignment('Java')); //logs 'Alicia Murph has submitted a PR for HTML, CSS, JavaScript'
+console.log(alicia.sprintChallenge('Python')); //logs 'Alica Murphy has begun a sprint challenge on HTML, CSS, JavaScript'
+console.log(john.standUp('Web24')); //logs 'John Wick announces to the Web 16, @channel standy times and I'm Back.'
 console.log(john.debugsCode(alicia, 'UI/UX')); //logs pass in the 'student' object to access student properties. 'John Wick debugs Alicia Murphy code on UI/UX'
